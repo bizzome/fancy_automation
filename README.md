@@ -25,8 +25,7 @@ chmod +x setup.sh
 ```
 
 
-3. 
- Run the setup script
+3. Run the setup script
 ```code
 ./setup.sh
 ```
