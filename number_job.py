@@ -24,12 +24,22 @@ def git_commit():
     commit_message = f"Update number: {date}"
     subprocess.run(['git', 'commit', '-m', commit_message])
 
+def git_push():
+    # Push the committed changes to GitHub
+    result = subprocess.run(['git', 'push'], capture_output=True, text=True)
+    if result.returncode == 0:
+        print("Changes pushed to GitHub successfully.")
+    else:
+        print("Error pushing to GitHub:")
+        print(result.stderr)
+
 def main():
     try:
         current_number = read_number()
         new_number = current_number + 1
         write_number(new_number)
         git_commit()
+        git_push()
         
     except Exception as e:
         print(f"Error: {str(e)}")
