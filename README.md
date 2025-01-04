@@ -1,5 +1,5 @@
 # fancy_automation
-One of those to make your day easier
+One of those to make your day easier.
 
 
 # Setup
@@ -9,7 +9,6 @@ One of those to make your day easier
 git clone https://github.com/bizzome/fancy_automation.git
 cd fancy_automation
 ```
-
 
 
 2. Run the script
@@ -24,13 +23,10 @@ If there is no errors its time to run the setup script
 chmod +x setup.sh
 ```
 
-
 3. Run the setup script
 ```code
 ./setup.sh
 ```
-
-
 
 
 Inpired By: @Shogun89

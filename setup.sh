@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define the cron job
-CRON_JOB="0 10 * * * cd /fancy_automation && python number_job.py"
+CRON_JOB="30 10 * * * cd /fancy_automation && python number_job.py"
 
 # Check if the cron job already exists
 crontab -l | grep -F "$CRON_JOB" > /dev/null
