@@ -3,6 +3,8 @@ import subprocess
 from datetime import datetime
 import os
 
+from dotenv import load_dotenv
+load_dotenv()
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
 os.chdir(script_dir)
@@ -29,9 +31,15 @@ def git_push():
     result = subprocess.run(['git', 'push'], capture_output=True, text=True)
     if result.returncode == 0:
         print("Changes pushed to GitHub successfully.")
-    else:
-        print("Error pushing to GitHub:")
-        print(result.stderr)
+    # If there was an error, try to set a password and push again
+    elif "Username for 'https://github.com': " in result.stderr:
+        password = os.environ.get('GITHUB_PASSWORD')
+        result = subprocess.run(['git', 'push'], input=f"{password}\n", capture_output=True, text=True)
+        if result.returncode == 0:
+            print("Changes pushed to GitHub successfully.")
+        else:
+            print("Error pushing to GitHub:")
+            print(result.stderr)
 
 def main():
     try:
