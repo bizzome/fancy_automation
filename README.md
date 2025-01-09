@@ -1,6 +1,8 @@
 # fancy_automation
 One of those to make your day easier.
 
+This is a test for schaduled updates for posts and changes in github.
+
 
 # Setup
 1. Clone this repository
